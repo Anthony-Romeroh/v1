@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>voçê MK</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;600&display=swap');
+
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #1e1e2f, #3a1c71, #d76d77, #ffaf7b);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+    color: white;
+    text-align: center;
+    overflow-x: hidden;
+}
+
+@keyframes gradient {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
+}
+
+.start-screen {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.start-btn {
+    padding: 20px 40px;
+    font-size: 20px;
+    border: none;
+    border-radius: 30px;
+    background: white;
+    color: #3a1c71;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+}
+
+.container {
+    display: none;
+    max-width: 800px;
+    margin: 60px auto;
+    padding: 20px;
+}
+
+.card {
+    background: rgba(255,255,255,0.12);
+    backdrop-filter: blur(15px);
+    padding: 40px;
+    border-radius: 25px;
+    margin-bottom: 30px;
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 1.5s ease;
+}
+
+.card.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 30px;
+    margin-bottom: 15px;
+}
+
+p {
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 1.6;
+}
+
+.highlight {
+    margin-top: 20px;
+    font-size: 20px;
+    font-weight: 600;
+    color: #fff8dc;
+    text-shadow: 0 0 20px rgba(255,255,255,0.6);
+}
+
+audio {
+    display: none;
+}
+</style>
+</head>
+
+<body>
+
+<div class="start-screen">
+    <button class="start-btn" onclick="startExperience()">
+        Toque para começar 💫
+    </button>
+</div>
+
+<div class="container" id="content">
+
+    <div class="card">
+        <h2>Passando por aqui...</h2>
+        <p>Para te lembrar que você é uma mulher forte.</p>
+    </div>
+
+    <div class="card">
+        <h2>Mesmo quando tudo pesa</h2>
+        <p>Você continua de pé.</p>
+        <div class="highlight">Isso é força.</div>
+    </div>
+
+    <div class="card">
+        <h2>Assim como José</h2>
+        <p>Ele enfrentou rejeição e injustiça.</p>
+        <div class="highlight">Mas Deus nunca deixou de agir.</div>
+    </div>
+
+    <div class="card">
+        <h2>No silêncio da dor</h2>
+        <p>Deus estava preparando algo maior.</p>
+    </div>
+
+    <div class="card">
+        <h2>E hoje eu só quero te lembrar</h2>
+        <p>Você é maravilhosa. Resiliente. Escolhida.</p>
+        <div class="highlight">Confie. Ele já está cuidando de tudo.</div>
+    </div>
+
+</div>
+
+<audio id="music" src="flowers.mp3" loop></audio>
+
+<script>
+function startExperience() {
+
+    document.querySelector(".start-screen").style.display = "none";
+    document.getElementById("content").style.display = "block";
+
+    let music = document.getElementById("music");
+
+    music.currentTime = 60; // 🔥 Ajuste aqui o segundo mais bonito
+    music.play();
+
+    let cards = document.querySelectorAll(".card");
+
+    cards.forEach((card, index) => {
+        setTimeout(() => {
+            card.classList.add("show");
+        }, index * 4000);
+    });
+}
+</script>
+
+</body>
+</html>
